@@ -125,6 +125,69 @@ app.post('/api/quote', async (req, res) => {
   }
 });
 
+// ================= ADMIN API =================
+// Get all quotes
+app.get('/api/admin/quotes', async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM quote_requests ORDER BY created_at DESC'
+    );
+    res.json(result.rows);
+  } catch (error) {
+    console.error('ADMIN QUOTES ERROR:', error);
+    res.status(500).json({ success: false });
+  }
+});
+
+// Get all contacts
+app.get('/api/admin/contacts', async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM contact_messages ORDER BY created_at DESC'
+    );
+    res.json(result.rows);
+  } catch (error) {
+    console.error('ADMIN CONTACTS ERROR:', error);
+    res.status(500).json({ success: false });
+  }
+});
+
+// Update quote status
+app.put('/api/admin/quotes/:id/status', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const result = await pool.query(
+      'UPDATE quote_requests SET status = $1 WHERE id = $2 RETURNING *',
+      [status, id]
+    );
+
+    res.json({ success: true, data: result.rows[0] });
+  } catch (error) {
+    console.error('UPDATE QUOTE STATUS ERROR:', error);
+    res.status(500).json({ success: false });
+  }
+});
+
+// Update contact status
+app.put('/api/admin/contacts/:id/status', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const result = await pool.query(
+      'UPDATE contact_messages SET status = $1 WHERE id = $2 RETURNING *',
+      [status, id]
+    );
+
+    res.json({ success: true, data: result.rows[0] });
+  } catch (error) {
+    console.error('UPDATE CONTACT STATUS ERROR:', error);
+    res.status(500).json({ success: false });
+  }
+});
+
 // ================= HEALTH =================
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
