@@ -19,7 +19,7 @@ export default function QuotePage() {
     setStatus('loading')
 
     try {
-      const apiUrl = 'http://localhost:4000'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'
       console.log('Sending to:', `${apiUrl}/api/quote`)
       const response = await fetch(`${apiUrl}/api/quote`, {
         method: 'POST',
