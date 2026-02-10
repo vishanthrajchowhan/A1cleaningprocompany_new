@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 4000;
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://a1cleaningprocompany-new.onrender.com', // Replace with your actual frontend URL
+    'https://a1cleaning-frontend.onrender.com',
     /\.onrender\.com$/ // Allow all onrender.com subdomains
   ],
   credentials: true
