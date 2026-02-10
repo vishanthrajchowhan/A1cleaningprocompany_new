@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import ServiceCard from '@/components/ServiceCard'
 
 interface Service {
@@ -8,24 +9,41 @@ interface Service {
   name: string
   description: string
   icon: string
+  link: string
 }
 
 export default function ServicesPage() {
-  const [services, setServices] = useState<Service[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('/api/services')
-      .then((res) => res.json())
-      .then((data) => {
-        setServices(data.services)
-        setLoading(false)
-      })
-      .catch((error) => {
-        console.error('Error fetching services:', error)
-        setLoading(false)
-      })
-  }, [])
+  const [services, setServices] = useState<Service[]>([
+    {
+      id: 1,
+      name: 'Office Cleaning',
+      description: 'Professional cleaning services for offices and corporate spaces.',
+      icon: 'office',
+      link: '/services/office-cleaning'
+    },
+    {
+      id: 2,
+      name: 'Commercial Cleaning',
+      description: 'Comprehensive cleaning solutions for retail and commercial properties.',
+      icon: 'commercial',
+      link: '/services/commercial-cleaning'
+    },
+    {
+      id: 3,
+      name: 'Deep Cleaning',
+      description: 'Thorough and intensive cleaning for all areas of your facility.',
+      icon: 'deep',
+      link: '/services/deep-cleaning'
+    },
+    {
+      id: 4,
+      name: 'Move-in / Move-out Cleaning',
+      description: 'Complete cleaning services for property transitions.',
+      icon: 'moving',
+      link: '/services/move-in-cleaning'
+    }
+  ])
+  const [loading, setLoading] = useState(false)
 
   return (
     <div className="py-16">
@@ -46,44 +64,59 @@ export default function ServicesPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {services.map((service) => (
-              <ServiceCard
-                key={service.id}
-                name={service.name}
-                description={service.description}
-                icon={service.icon}
-              />
+              <Link href={service.link} key={service.id}>
+                <div className="cursor-pointer transition transform hover:scale-105">
+                  <ServiceCard
+                    name={service.name}
+                    description={service.description}
+                    icon={service.icon}
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         )}
 
         {/* Service Options */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h3 className="text-xl font-bold mb-3 text-gray-900">Cleaning Frequency</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li>• One-time service</li>
-              <li>• Weekly</li>
-              <li>• Bi-weekly</li>
-              <li>• Monthly</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h3 className="text-xl font-bold mb-3 text-gray-900">Service Levels</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li>• Standard clean</li>
-              <li>• Deep clean</li>
-              <li>• Move-in / Move-out</li>
-              <li>• Post-construction</li>
-            </ul>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h3 className="text-xl font-bold mb-3 text-gray-900">Add-On Options</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li>• Interior windows</li>
-              <li>• Carpet spot treatment</li>
-              <li>• Appliance cleaning</li>
-              <li>• High-touch disinfection</li>
-            </ul>
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-gray-900">Explore Our Options</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link href="/services/frequency">
+              <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg hover:scale-105 transition Duration-300 cursor-pointer">
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Cleaning Frequency</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li>• One-time service</li>
+                  <li>• Weekly</li>
+                  <li>• Bi-weekly</li>
+                  <li>• Monthly</li>
+                </ul>
+                <p className="text-primary-600 font-semibold mt-4">Learn more →</p>
+              </div>
+            </Link>
+            <Link href="/services/levels">
+              <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg hover:scale-105 transition Duration-300 cursor-pointer">
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Service Levels</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li>• Standard clean</li>
+                  <li>• Deep clean</li>
+                  <li>• Move-in / Move-out</li>
+                  <li>• Post-construction</li>
+                </ul>
+                <p className="text-primary-600 font-semibold mt-4">Learn more →</p>
+              </div>
+            </Link>
+            <Link href="/services/addons">
+              <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg hover:scale-105 transition Duration-300 cursor-pointer">
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Add-On Options</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li>• Interior windows</li>
+                  <li>• Carpet spot treatment</li>
+                  <li>• Appliance cleaning</li>
+                  <li>• High-touch disinfection</li>
+                </ul>
+                <p className="text-primary-600 font-semibold mt-4">Learn more →</p>
+              </div>
+            </Link>
           </div>
         </div>
 
