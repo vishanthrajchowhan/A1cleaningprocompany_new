@@ -19,7 +19,8 @@ export default function QuotePage() {
     setStatus('loading')
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'
+      const apiUrl = 'http://localhost:4000'
+      console.log('Sending to:', `${apiUrl}/api/quote`)
       const response = await fetch(`${apiUrl}/api/quote`, {
         method: 'POST',
         headers: {
@@ -27,6 +28,10 @@ export default function QuotePage() {
         },
         body: JSON.stringify(formData),
       })
+
+      console.log('Response status:', response.status, response.ok)
+      const data = await response.json()
+      console.log('Response data:', data)
 
       if (response.ok) {
         setStatus('success')
@@ -39,9 +44,11 @@ export default function QuotePage() {
           message: ''
         })
       } else {
+        console.error('Error from server:', data)
         setStatus('error')
       }
     } catch (error) {
+      console.error('Fetch error:', error)
       setStatus('error')
     }
   }
