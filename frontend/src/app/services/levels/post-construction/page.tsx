@@ -144,7 +144,7 @@ export default function PostConstructionPage() {
             <div className="bg-white p-6 rounded-lg">
               <p className="text-gray-600 font-semibold mb-3">Small Project</p>
               <p className="text-2xl font-bold text-blue-600">$400-800</p>
-              <p className="text-sm text-gray-500">< 2500 sq ft</p>
+              <p className="text-sm text-gray-500">&lt; 2500 sq ft</p>
             </div>
             <div className="bg-white p-6 rounded-lg">
               <p className="text-gray-600 font-semibold mb-3">Medium Project</p>
@@ -154,7 +154,7 @@ export default function PostConstructionPage() {
             <div className="bg-white p-6 rounded-lg">
               <p className="text-gray-600 font-semibold mb-3">Large Project</p>
               <p className="text-2xl font-bold text-blue-600">$1600+</p>
-              <p className="text-sm text-gray-500">> 5000 sq ft</p>
+              <p className="text-sm text-gray-500">&gt; 5000 sq ft</p>
             </div>
           </div>
         </div>

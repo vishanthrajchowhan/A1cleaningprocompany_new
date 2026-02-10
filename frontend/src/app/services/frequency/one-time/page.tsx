@@ -80,7 +80,7 @@ export default function OneTimeServicePage() {
           <p className="text-gray-600 mb-4">Pricing varies based on property size and condition. Typical range:</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="border-l-4 border-primary-600 pl-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Small Space (< 1000 sq ft)</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Small Space (&lt; 1000 sq ft)</h3>
               <p className="text-2xl font-bold text-primary-600">$150 - $300</p>
             </div>
             <div className="border-l-4 border-primary-600 pl-6">
@@ -88,7 +88,7 @@ export default function OneTimeServicePage() {
               <p className="text-2xl font-bold text-primary-600">$300 - $600</p>
             </div>
             <div className="border-l-4 border-primary-600 pl-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Large Space (> 3000 sq ft)</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Large Space (&gt; 3000 sq ft)</h3>
               <p className="text-2xl font-bold text-primary-600">$600+</p>
             </div>
           </div>
