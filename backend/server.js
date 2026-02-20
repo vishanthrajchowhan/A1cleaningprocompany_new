@@ -7,18 +7,39 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// ================= MIDDLEWARE =================
+// ================= CORS MIDDLEWARE =================
+// Define allowed origins
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://a1cleaning-frontend.onrender.com',
+  'https://a1cleaningprocompany.com',
+  'https://www.a1cleaningprocompany.com'
+];
+
 const corsOptions = {
-  origin: [
-    'http://localhost:3000',
-    'https://a1cleaning-frontend.onrender.com',
-    'https://a1cleaningprocompany.com',
-    'https://www.a1cleaningprocompany.com',
-    /\.onrender\.com$/ // Allow all onrender.com subdomains
-  ],
-  credentials: true
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or server-to-server requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin) || /\.onrender\.com$/.test(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200 // For legacy browser support
 };
+
+// Apply CORS middleware FIRST before any routes
 app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
+
+// Body parser middleware
 app.use(express.json());
 
 // ================= EMAIL CONFIG =================
