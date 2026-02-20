@@ -17,7 +17,7 @@ export default function ContactPage() {
     setStatus('loading')
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://a1cleaningprocompany-new.onrender.com'
       console.log('Sending to:', `${apiUrl}/api/contact`)
       const response = await fetch(`${apiUrl}/api/contact`, {
         method: 'POST',
