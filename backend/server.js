@@ -12,6 +12,8 @@ const corsOptions = {
   origin: [
     'http://localhost:3000',
     'https://a1cleaning-frontend.onrender.com',
+    'https://a1cleaningprocompany.com',
+    'https://www.a1cleaningprocompany.com',
     /\.onrender\.com$/ // Allow all onrender.com subdomains
   ],
   credentials: true
