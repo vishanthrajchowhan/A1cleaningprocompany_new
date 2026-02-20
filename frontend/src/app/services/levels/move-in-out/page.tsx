@@ -101,27 +101,6 @@ export default function MoveInOutPage() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-blue-50 p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Move-Out Pricing</h3>
-            <ul className="space-y-2 text-gray-700">
-              <li>Studio: $200-350</li>
-              <li>1 Bedroom: $300-500</li>
-              <li>2 Bedroom: $400-700</li>
-              <li>3+ Bedroom: $600+</li>
-            </ul>
-          </div>
-          <div className="bg-green-50 p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Move-In Pricing</h3>
-            <ul className="space-y-2 text-gray-700">
-              <li>Studio: $250-400</li>
-              <li>1 Bedroom: $350-550</li>
-              <li>2 Bedroom: $500-800</li>
-              <li>3+ Bedroom: $700+</li>
-            </ul>
-          </div>
-        </div>
-
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Schedule Your Move Cleaning</h2>
           <Button href="/quote">Request Move-In/Out Quote</Button>

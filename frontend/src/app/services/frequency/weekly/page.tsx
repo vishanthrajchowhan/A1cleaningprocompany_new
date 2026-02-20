@@ -93,25 +93,6 @@ export default function WeeklyCleaningPage() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-green-50 rounded-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900">Typical Pricing</h2>
-          <p className="text-gray-600 mb-4">Monthly pricing for weekly service (approximate):</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div>
-              <p className="text-gray-600 mb-2">Small Office</p>
-              <p className="text-3xl font-bold text-green-600">$400-600/mo</p>
-            </div>
-            <div>
-              <p className="text-gray-600 mb-2">Medium Office</p>
-              <p className="text-3xl font-bold text-green-600">$800-1200/mo</p>
-            </div>
-            <div>
-              <p className="text-gray-600 mb-2">Large Space</p>
-              <p className="text-3xl font-bold text-green-600">$1400+/mo</p>
-            </div>
-          </div>
-        </div>
-
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Start Your Weekly Service Today</h2>
           <Button href="/quote">Get Weekly Quote</Button>

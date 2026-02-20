@@ -88,27 +88,6 @@ export default function InteriorWindowsPage() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-yellow-50 rounded-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900">Pricing</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 font-semibold mb-3">Small Package</p>
-              <p className="text-2xl font-bold text-yellow-600">$50-100</p>
-              <p className="text-sm text-gray-500">1-10 windows</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 font-semibold mb-3">Medium Package</p>
-              <p className="text-2xl font-bold text-yellow-600">$100-200</p>
-              <p className="text-sm text-gray-500">11-25 windows</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 font-semibold mb-3">Large Package</p>
-              <p className="text-2xl font-bold text-yellow-600">$200+</p>
-              <p className="text-sm text-gray-500">25+ windows</p>
-            </div>
-          </div>
-        </div>
-
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Add Windows to Your Order</h2>
           <Button href="/quote">Add Interior Windows Cleaning</Button>

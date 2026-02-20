@@ -99,27 +99,6 @@ export default function MonthlyCleaningPage() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-yellow-50 rounded-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900">Simple Pricing</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 mb-2 font-semibold">Small Space</p>
-              <p className="text-3xl font-bold text-yellow-600">$150</p>
-              <p className="text-sm text-gray-500">per month</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 mb-2 font-semibold">Medium Space</p>
-              <p className="text-3xl font-bold text-yellow-600">$250-350</p>
-              <p className="text-sm text-gray-500">per month</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 mb-2 font-semibold">Large Space</p>
-              <p className="text-3xl font-bold text-yellow-600">$400+</p>
-              <p className="text-sm text-gray-500">per month</p>
-            </div>
-          </div>
-        </div>
-
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Get Started With Monthly Service</h2>
           <Button href="/quote">Request Monthly Quote</Button>

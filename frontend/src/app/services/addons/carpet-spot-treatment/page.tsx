@@ -102,27 +102,6 @@ export default function CarpetSpotTreatmentPage() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-orange-50 rounded-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900">Pricing Options</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 font-semibold mb-3">Per Spot</p>
-              <p className="text-3xl font-bold text-orange-600">$15-30</p>
-              <p className="text-sm text-gray-500">Each stain</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 font-semibold mb-3">Multiple Spots</p>
-              <p className="text-3xl font-bold text-orange-600">$50-150</p>
-              <p className="text-sm text-gray-500">5-10 spots</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 font-semibold mb-3">Full Room</p>
-              <p className="text-3xl font-bold text-orange-600">$150+</p>
-              <p className="text-sm text-gray-500">10+ spots</p>
-            </div>
-          </div>
-        </div>
-
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Treat Your Carpet Today</h2>
           <Button href="/quote">Add Carpet Treatment</Button>

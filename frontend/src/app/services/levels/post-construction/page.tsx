@@ -137,28 +137,6 @@ export default function PostConstructionPage() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-blue-50 rounded-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900">Pricing</h2>
-          <p className="text-gray-600 mb-6">Post-construction cleaning pricing varies based on project scope:</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 font-semibold mb-3">Small Project</p>
-              <p className="text-2xl font-bold text-blue-600">$400-800</p>
-              <p className="text-sm text-gray-500">&lt; 2500 sq ft</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 font-semibold mb-3">Medium Project</p>
-              <p className="text-2xl font-bold text-blue-600">$800-1600</p>
-              <p className="text-sm text-gray-500">2500-5000 sq ft</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <p className="text-gray-600 font-semibold mb-3">Large Project</p>
-              <p className="text-2xl font-bold text-blue-600">$1600+</p>
-              <p className="text-sm text-gray-500">&gt; 5000 sq ft</p>
-            </div>
-          </div>
-        </div>
-
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Ready to Move In?</h2>
           <Button href="/quote">Get Post-Construction Quote</Button>
