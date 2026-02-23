@@ -9,6 +9,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'A1cleaning - Professional Cleaning Company',
   description: 'Professional cleaning services for offices, commercial spaces, and residential properties.',
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
 }
 
 export default function RootLayout({
