@@ -35,14 +35,11 @@ export default function Header() {
             <Link href="/about" className="text-gray-700 hover:text-primary-600 transition">
               About Us
             </Link>
-            <Link href="/quote" className="text-gray-700 hover:text-primary-600 transition">
-              Request a Quote
-            </Link>
             <Link href="/contact" className="text-gray-700 hover:text-primary-600 transition">
               Contact
             </Link>
             <Button href="/quote" className="ml-2 scale-110 hover:scale-100 transition-transform">
-              Get Free Estimate
+              Request a Quote
             </Button>
           </div>
 
@@ -73,14 +70,11 @@ export default function Header() {
             <Link href="/about" className="block text-gray-700 hover:text-primary-600">
               About Us
             </Link>
-            <Link href="/quote" className="block text-gray-700 hover:text-primary-600">
-              Request a Quote
-            </Link>
             <Link href="/contact" className="block text-gray-700 hover:text-primary-600">
               Contact
             </Link>
             <Button href="/quote" className="w-full">
-              Get Free Estimate
+              Request a Quote
             </Button>
           </div>
         )}
