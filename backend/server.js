@@ -123,7 +123,7 @@ app.post('/api/quote', async (req, res) => {
     // 1️⃣ Save to Database
     const result = await pool.query(
       `INSERT INTO quote_requests 
-       (name, email, phone, facility_type, square_footage, message)
+       (full_name, email, phone, facility_type, square_footage, message)
        VALUES ($1, $2, $3, $4, $5, $6)
        RETURNING *`,
       [name, email, phone, facilityType, squareFootage, message]
