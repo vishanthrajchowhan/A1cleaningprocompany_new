@@ -83,7 +83,7 @@ app.post('/api/contact', async (req, res) => {
     const { name, email, phone, message } = req.body;
 
     await pool.query(
-      `INSERT INTO contact_messages (full_name, email, phone, message)
+      `INSERT INTO contact_messages (name, email, phone, message)
        VALUES ($1, $2, $3, $4)`,
       [name, email, phone, message]
     );
@@ -123,7 +123,7 @@ app.post('/api/quote', async (req, res) => {
     // 1️⃣ Save to Database
     const result = await pool.query(
       `INSERT INTO quote_requests 
-       (full_name, email, phone, facility_type, square_footage, message)
+       (name, email, phone, facility_type, square_footage, message)
        VALUES ($1, $2, $3, $4, $5, $6)
        RETURNING *`,
       [name, email, phone, facilityType, squareFootage, message]
