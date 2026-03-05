@@ -225,6 +225,25 @@ app.get('/health', (req, res) => {
 });
 
 // ================= START SERVER =================
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+// ================= GRACEFUL SHUTDOWN =================
+const gracefulShutdown = (signal) => {
+  console.log(`\n${signal} received. Starting graceful shutdown...`);
+  
+  server.close(async () => {
+    console.log('🔌 Closing database connections...');
+    try {
+      await pool.end();
+      console.log('✅ Database pool closed');
+    } catch (err) {
+      console.error('❌ Error closing database pool:', err);
+    }
+    process.exit(0);
+  });
+};
+
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));

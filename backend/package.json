@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "setup-db": "node -e \"require('dotenv').config(); const pool = require('./db'); const fs = require('fs'); const sql = fs.readFileSync('./schema.sql', 'utf8'); (async () => { try { await pool.query(sql); console.log('✅ Database schema created successfully'); } catch(e) { console.error('❌ Error creating schema:', e.message); process.exit(1); } finally { await pool.end(); process.exit(0); } })();\""
   },
   "keywords": [],
   "author": "",
