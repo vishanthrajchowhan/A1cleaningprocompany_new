@@ -120,18 +120,24 @@ app.post('/api/contact', async (req, res) => {
       [name, email, phone, message]
     );
 
-    await transporter.sendMail({
-      from: `"A1 Cleaning Website" <${process.env.EMAIL_USER}>`,
-      to: "chowhanvishanthraj@gmail.com",
-      subject: "📩 New Contact Message",
-      html: `
-        <h2>New Contact Message</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong><br/>${message}</p>
-      `
-    });
+    // Try to send email, but don't fail the request if it fails
+    try {
+      await transporter.sendMail({
+        from: `"A1 Cleaning Website" <${process.env.EMAIL_USER}>`,
+        to: "chowhanvishanthraj@gmail.com",
+        subject: "📩 New Contact Message",
+        html: `
+          <h2>New Contact Message</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Message:</strong><br/>${message}</p>
+        `
+      });
+      console.log('✅ Contact email sent successfully');
+    } catch (emailError) {
+      console.error('⚠️ Email sending failed (data saved to DB):', emailError.message);
+    }
 
     res.json({ success: true });
   } catch (error) {
@@ -161,21 +167,26 @@ app.post('/api/quote', async (req, res) => {
       [name, email, phone, facilityType, squareFootage, message]
     );
 
-    // 2️⃣ Send Email to YOU
-    await transporter.sendMail({
-      from: `"A1 Cleaning Website" <${process.env.EMAIL_USER}>`,
-      to: "chowhanvishanthraj@gmail.com",
-      subject: "🧾 New Quote Request",
-      html: `
-        <h2>New Quote Request</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Facility Type:</strong> ${facilityType}</p>
-        <p><strong>Square Footage:</strong> ${squareFootage}</p>
-        <p><strong>Details:</strong><br/>${message}</p>
-      `
-    });
+    // 2️⃣ Try to send email, but don't fail the request if it fails
+    try {
+      await transporter.sendMail({
+        from: `"A1 Cleaning Website" <${process.env.EMAIL_USER}>`,
+        to: "chowhanvishanthraj@gmail.com",
+        subject: "🧾 New Quote Request",
+        html: `
+          <h2>New Quote Request</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Facility Type:</strong> ${facilityType}</p>
+          <p><strong>Square Footage:</strong> ${squareFootage}</p>
+          <p><strong>Details:</strong><br/>${message}</p>
+        `
+      });
+      console.log('✅ Quote email sent successfully');
+    } catch (emailError) {
+      console.error('⚠️ Email sending failed (data saved to DB):', emailError.message);
+    }
 
     res.json({
       success: true,
