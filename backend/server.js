@@ -51,6 +51,38 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// ================= AUTO-INITIALIZE DATABASE =================
+const initializeDatabase = async () => {
+  try {
+    const fs = require('fs');
+    const schemaPath = require('path').join(__dirname, 'schema.sql');
+    
+    // Check if tables exist
+    const tableCheck = await pool.query(`
+      SELECT EXISTS (
+        SELECT FROM information_schema.tables 
+        WHERE table_schema = 'public' 
+        AND table_name = 'contact_messages'
+      );
+    `);
+    
+    if (!tableCheck.rows[0].exists) {
+      console.log('📋 Tables not found. Creating database schema...');
+      const schema = fs.readFileSync(schemaPath, 'utf8');
+      await pool.query(schema);
+      console.log('✅ Database schema created successfully!');
+    } else {
+      console.log('✅ Database tables already exist');
+    }
+  } catch (error) {
+    console.error('❌ Database initialization error:', error.message);
+    // Don't exit - let server start anyway
+  }
+};
+
+// Initialize database on startup
+initializeDatabase();
+
 // ================= ROOT =================
 app.get('/', (req, res) => {
   res.json({
