@@ -11,6 +11,7 @@ interface Quote {
   facility_type: string
   square_footage: string
   details: string
+  message?: string
   status?: string
   created_at: string
 }
@@ -33,6 +34,13 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<'quotes' | 'contacts'>('quotes')
   const [loading, setLoading] = useState(false)
 
+  const getApiUrl = () => {
+    return process.env.NEXT_PUBLIC_API_URL ||
+      (process.env.NODE_ENV === 'development'
+        ? 'http://localhost:4000'
+        : 'https://a1cleaningprocompany-new.onrender.com')
+  }
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
     if (password === '123456') {
@@ -46,9 +54,10 @@ export default function AdminPage() {
   const fetchData = async () => {
     setLoading(true)
     try {
+      const apiUrl = getApiUrl()
       const [quotesRes, contactsRes] = await Promise.all([
-        fetch('/api/admin/quotes'),
-        fetch('/api/admin/contacts')
+        fetch(`${apiUrl}/api/admin/quotes`),
+        fetch(`${apiUrl}/api/admin/contacts`)
       ])
 
       if (quotesRes.ok) {
@@ -68,7 +77,8 @@ export default function AdminPage() {
 
   const handleQuoteStatusChange = async (id: number, newStatus: string) => {
     try {
-      const response = await fetch(`/api/admin/quotes/${id}/status`, {
+      const apiUrl = getApiUrl()
+      const response = await fetch(`${apiUrl}/api/admin/quotes/${id}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
@@ -86,7 +96,8 @@ export default function AdminPage() {
 
   const handleContactStatusChange = async (id: number, newStatus: string) => {
     try {
-      const response = await fetch(`/api/admin/contacts/${id}/status`, {
+      const apiUrl = getApiUrl()
+      const response = await fetch(`${apiUrl}/api/admin/contacts/${id}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
@@ -253,7 +264,7 @@ export default function AdminPage() {
                         <td className="px-6 py-4 text-sm text-gray-600">{quote.phone}</td>
                         <td className="px-6 py-4 text-sm text-gray-600 capitalize">{quote.facility_type}</td>
                         <td className="px-6 py-4 text-sm text-gray-600">{quote.square_footage} sq ft</td>
-                        <td className="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">{quote.details}</td>
+                        <td className="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">{quote.details || quote.message || '-'}</td>
                         <td className="px-6 py-4 text-sm text-gray-600">
                           {new Date(quote.created_at).toLocaleDateString()}
                         </td>
