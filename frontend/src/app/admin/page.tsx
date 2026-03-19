@@ -224,7 +224,7 @@ export default function AdminPage() {
         {activeTab === 'quotes' && (
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[1100px]">
                 <thead className="bg-gray-100 border-b border-gray-300">
                   <tr>
                     <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Status</th>
@@ -264,8 +264,10 @@ export default function AdminPage() {
                         <td className="px-6 py-4 text-sm text-gray-600">{quote.phone}</td>
                         <td className="px-6 py-4 text-sm text-gray-600 capitalize">{quote.facility_type}</td>
                         <td className="px-6 py-4 text-sm text-gray-600">{quote.square_footage} sq ft</td>
-                        <td className="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">{quote.details || quote.message || '-'}</td>
-                        <td className="px-6 py-4 text-sm text-gray-600">
+                        <td className="px-6 py-4 text-sm text-gray-600 whitespace-normal break-words min-w-[320px]">
+                          {quote.details || quote.message || '-'}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">
                           {new Date(quote.created_at).toLocaleDateString()}
                         </td>
                       </tr>
@@ -281,7 +283,7 @@ export default function AdminPage() {
         {activeTab === 'contacts' && (
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[950px]">
                 <thead className="bg-gray-100 border-b border-gray-300">
                   <tr>
                     <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Status</th>
@@ -317,8 +319,10 @@ export default function AdminPage() {
                         <td className="px-6 py-4 text-sm text-gray-900">{contact.name}</td>
                         <td className="px-6 py-4 text-sm text-gray-600">{contact.email}</td>
                         <td className="px-6 py-4 text-sm text-gray-600">{contact.phone}</td>
-                        <td className="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">{contact.message}</td>
-                        <td className="px-6 py-4 text-sm text-gray-600">
+                        <td className="px-6 py-4 text-sm text-gray-600 whitespace-normal break-words min-w-[320px]">
+                          {contact.message}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">
                           {new Date(contact.created_at).toLocaleDateString()}
                         </td>
                       </tr>
