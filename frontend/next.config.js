@@ -3,12 +3,9 @@ const nextConfig = {
   // Optimize for production
   reactStrictMode: true,
   swcMinify: true,
-  
-  // Reduce memory usage
-  experimental: {
-    // Disable source maps in production to save memory
-    productionBrowserSourceMaps: false,
-  },
+
+  // Disable source maps in production to reduce build output size.
+  productionBrowserSourceMaps: false,
   
   // Optimize images
   images: {

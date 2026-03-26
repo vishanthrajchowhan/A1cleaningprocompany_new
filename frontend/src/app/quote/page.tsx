@@ -94,7 +94,7 @@ export default function QuotePage() {
               {/* Email */}
               <div className="mb-6">
                 <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                  Email Address *
+                  Email Address
                 </label>
                 <input
                   type="email"

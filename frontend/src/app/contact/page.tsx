@@ -91,7 +91,7 @@ export default function ContactPage() {
               {/* Email */}
               <div className="mb-6">
                 <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                  Email Address *
+                  Email Address
                 </label>
                 <input
                   type="email"
@@ -123,7 +123,7 @@ export default function ContactPage() {
               {/* Message */}
               <div className="mb-6">
                 <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
-                  Message *
+                  Additional info
                 </label>
                 <textarea
                   id="message"
