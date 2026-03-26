@@ -179,7 +179,7 @@ export default function ContactPage() {
                   <div className="text-3xl mr-4">📍</div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Address</h3>
-                    <p className="text-gray-700">319 South state road 7<br />Plantation, FL 33317</p>
+                    <p className="text-gray-700">319 South State Road 7<br />Plantation, FL 33317</p>
                   </div>
                 </div>
                 <div className="flex items-start">

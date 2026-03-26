@@ -1,6 +1,22 @@
 import Button from '@/components/Button'
 import ServiceCard from '@/components/ServiceCard'
 import Image from 'next/image'
+import type { Metadata } from 'next'
+import { buildMetadata } from './seo'
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Professional Cleaning Services',
+  description:
+    'Reliable office, commercial, and residential cleaning services with flexible plans and transparent pricing.',
+  path: '/',
+  keywords: [
+    'cleaning services',
+    'office cleaning',
+    'commercial cleaning',
+    'deep cleaning',
+    'move in move out cleaning',
+  ],
+})
 
 export default function Home() {
   const services = [
@@ -24,6 +40,30 @@ export default function Home() {
       description: 'Complete cleaning services for property transitions.',
       icon: 'moving'
     }
+  ]
+
+  const testimonials = [
+    {
+      name: 'Maria G.',
+      role: 'Office Manager, Plantation',
+      quote:
+        'A1cleaning has been incredibly consistent. Our office looks spotless every morning and our staff always notices the difference.',
+      rating: 5,
+    },
+    {
+      name: 'Daniel R.',
+      role: 'Property Manager, Fort Lauderdale',
+      quote:
+        'They handled our move-out clean on a tight timeline and delivered beyond expectations. Great communication and excellent results.',
+      rating: 5,
+    },
+    {
+      name: 'Sofia L.',
+      role: 'Small Business Owner, Sunrise',
+      quote:
+        'Professional team, fair pricing, and no surprises. We moved to a weekly plan after the first visit because the quality was so good.',
+      rating: 5,
+    },
   ]
 
   return (
@@ -104,6 +144,30 @@ export default function Home() {
                 We use environmentally safe cleaning products that are effective and safe.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
+            What Our Clients Say
+          </h2>
+          <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+            Trusted by offices, property managers, and business owners across South Florida.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.name} className="bg-gray-50 rounded-lg p-6 shadow-md">
+                <div className="text-yellow-500 text-lg mb-3">{'★'.repeat(testimonial.rating)}</div>
+                <p className="text-gray-700 mb-6 leading-relaxed">"{testimonial.quote}"</p>
+                <div>
+                  <p className="font-bold text-gray-900">{testimonial.name}</p>
+                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

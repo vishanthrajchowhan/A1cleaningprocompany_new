@@ -1,5 +1,15 @@
 import Button from '@/components/Button'
 import Image from 'next/image'
+import type { Metadata } from 'next'
+import { buildMetadata } from '../seo'
+
+export const metadata: Metadata = buildMetadata({
+  title: 'About Us',
+  description:
+    'Learn about A1cleaning, our mission, values, and professional team delivering trusted cleaning services.',
+  path: '/about',
+  keywords: ['about cleaning company', 'professional cleaners', 'trusted cleaning team'],
+})
 
 export default function AboutPage() {
   return (

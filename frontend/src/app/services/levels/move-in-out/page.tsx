@@ -95,7 +95,7 @@ export default function MoveInOutPage() {
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Deposit Guarantee</h2>
           <div className="bg-white p-6 rounded-lg mb-6">
             <p className="text-gray-700 mb-4">
-              <strong>We guarantee our move-out cleaning will help you retain your full security deposit.</strong> If you lose deposit money due to cleanliness issues we could have prevented, we'll reimburse the difference (up to the cost of our service).
+              <strong>We guarantee our move-out cleaning will help you retain your full security deposit.</strong> If you lose deposit money due to cleanliness issues that we could have prevented, we'll reimburse the difference (up to the cost of our service).
             </p>
             <p className="text-sm text-gray-500">*Terms and conditions apply. See our full guarantee details.</p>
           </div>

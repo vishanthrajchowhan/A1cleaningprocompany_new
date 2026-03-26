@@ -51,7 +51,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>📧 ingrid@a1cleaningprocompany.com</li>
               <li>📞 (786) 390-9145</li>
-              <li>📍 319 South state road 7, Plantaion, FL</li>
+              <li>📍 319 South State Road 7, Plantation, FL</li>
             </ul>
           </div>
         </div>
