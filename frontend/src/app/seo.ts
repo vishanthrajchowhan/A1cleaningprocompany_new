@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 const FALLBACK_SITE_URL = 'https://www.a1cleaningprocompany.com'
 
 export const SITE_NAME = 'A1cleaning'
+export const GOOGLE_BUSINESS_PROFILE_URL = 'https://www.google.com/search?q=A1+Cleaning+Pro+LLC'
 
 export function getSiteUrl(): string {
   const raw = process.env.NEXT_PUBLIC_SITE_URL || FALLBACK_SITE_URL

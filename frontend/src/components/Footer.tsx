@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { GOOGLE_BUSINESS_PROFILE_URL } from '@/app/seo'
 
 export default function Footer() {
   return (
@@ -52,6 +53,17 @@ export default function Footer() {
               <li>📧 ingrid@a1cleaningprocompany.com</li>
               <li>📞 (786) 390-9145</li>
               <li>📍 319 South State Road 7, Plantation, FL</li>
+              <li>
+                ⭐{' '}
+                <a
+                  href={GOOGLE_BUSINESS_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition"
+                >
+                  Google Business Profile
+                </a>
+              </li>
             </ul>
           </div>
         </div>
